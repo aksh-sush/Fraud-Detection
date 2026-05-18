@@ -1,0 +1,12 @@
+pandas
+numpy
+requests
+beautifulsoup4
+xgboost
+scikit-learn
+joblib
+lxml
+faker
+shap
+imbalanced-learn
+networkx
