@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import { createRoot } from "react-dom/client";
 
 const C = {
   bg: "#0B0F17",
@@ -905,4 +906,10 @@ export default function FraudDashboard() {
       </footer>
     </div>
   );
+}
+
+// Mount app
+const rootEl = document.getElementById('root');
+if (rootEl) {
+  createRoot(rootEl).render(<FraudDashboard />);
 }
