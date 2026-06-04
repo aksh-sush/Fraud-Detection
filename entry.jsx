@@ -22,8 +22,11 @@ const C = {
 // Quick Landing Page
 function LandingPage({ onNavigate }) {
   return (
-    <div style={{ background: C.bg, minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "4rem 2rem" }}>
-      <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.68rem", letterSpacing: "0.18em", color: C.crimson, border: `1px solid rgba(239,68,68,0.3)`, background: "rgba(239,68,68,0.07)", padding: "0.35rem 1rem", borderRadius: "2px", marginBottom: "2.5rem" }}>
+    <div style={{ background: C.bg, minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "4rem 2rem", fontFamily: "'JetBrains Mono', 'Fira Code', monospace" }}>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Space+Grotesk:wght@300;400;600;700&display=swap');
+      `}</style>
+      <div style={{ fontSize: "0.68rem", letterSpacing: "0.18em", color: C.crimson, border: `1px solid rgba(239,68,68,0.3)`, background: "rgba(239,68,68,0.07)", padding: "0.35rem 1rem", borderRadius: "2px", marginBottom: "2.5rem" }}>
         ● LIVE SYSTEM · FINANCIAL FRAUD DETECTION
       </div>
       <h1 style={{ fontSize: "clamp(3rem, 9vw, 6rem)", fontWeight: 900, color: C.text, marginBottom: "1rem" }}>
@@ -37,7 +40,7 @@ function LandingPage({ onNavigate }) {
         <div><div style={{ fontSize: "1.8rem", fontWeight: 700, color: C.cyan }}>4</div><div style={{ fontSize: "0.7rem", color: C.textMuted }}>MODULES</div></div>
         <div><div style={{ fontSize: "1.8rem", fontWeight: 700, color: C.amber }}>94%</div><div style={{ fontSize: "0.7rem", color: C.textMuted }}>RECALL</div></div>
       </div>
-      <button onClick={onNavigate} style={{ fontFamily: "'DM Mono', monospace", padding: "0.75rem 2rem", border: `1px solid ${C.cyan}`, background: `rgba(6,182,212,0.1)`, color: C.cyan, borderRadius: "3px", cursor: "pointer", fontSize: "0.75rem" }}>
+      <button onClick={onNavigate} style={{ padding: "0.75rem 2rem", border: `1px solid ${C.cyan}`, background: `rgba(6,182,212,0.1)`, color: C.cyan, borderRadius: "3px", cursor: "pointer", fontSize: "0.75rem" }}>
         → LAUNCH DASHBOARD
       </button>
     </div>
