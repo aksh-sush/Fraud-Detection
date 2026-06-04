@@ -19,6 +19,31 @@ const C = {
   textDim: "#334155",
 };
 
+// Quick Landing Page
+function LandingPage({ onNavigate }) {
+  return (
+    <div style={{ background: C.bg, minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "4rem 2rem" }}>
+      <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.68rem", letterSpacing: "0.18em", color: C.crimson, border: `1px solid rgba(239,68,68,0.3)`, background: "rgba(239,68,68,0.07)", padding: "0.35rem 1rem", borderRadius: "2px", marginBottom: "2.5rem" }}>
+        ● LIVE SYSTEM · FINANCIAL FRAUD DETECTION
+      </div>
+      <h1 style={{ fontSize: "clamp(3rem, 9vw, 6rem)", fontWeight: 900, color: C.text, marginBottom: "1rem" }}>
+        Catch fraud.<br /><span style={{ color: C.cyan }}>Explain</span> it.
+      </h1>
+      <p style={{ maxWidth: "600px", fontSize: "1rem", color: C.textMuted, marginBottom: "2rem", lineHeight: 1.6 }}>
+        AI-powered fraud detection combining rules, graph neural networks, XGBoost, and SHAP explainability.
+      </p>
+      <div style={{ display: "flex", gap: "2rem", marginBottom: "3rem" }}>
+        <div><div style={{ fontSize: "1.8rem", fontWeight: 700, color: C.crimson }}>6</div><div style={{ fontSize: "0.7rem", color: C.textMuted }}>RULES</div></div>
+        <div><div style={{ fontSize: "1.8rem", fontWeight: 700, color: C.cyan }}>4</div><div style={{ fontSize: "0.7rem", color: C.textMuted }}>MODULES</div></div>
+        <div><div style={{ fontSize: "1.8rem", fontWeight: 700, color: C.amber }}>94%</div><div style={{ fontSize: "0.7rem", color: C.textMuted }}>RECALL</div></div>
+      </div>
+      <button onClick={onNavigate} style={{ fontFamily: "'DM Mono', monospace", padding: "0.75rem 2rem", border: `1px solid ${C.cyan}`, background: `rgba(6,182,212,0.1)`, color: C.cyan, borderRadius: "3px", cursor: "pointer", fontSize: "0.75rem" }}>
+        → LAUNCH DASHBOARD
+      </button>
+    </div>
+  );
+}
+
 const NAV_ITEMS = ["Threat Vectors","Live Engine","Architecture","Test Suite"];
 
 function hexToRgb(hex) {
@@ -782,7 +807,7 @@ function TerminalSection() {
 // ─────────────────────────────────────────────
 // MAIN COMPONENT
 // ─────────────────────────────────────────────
-export default function FraudDashboard() {
+function DashboardContent() {
   const [activeNav, setActiveNav] = useState(0);
   const [graphScenario, setGraphScenario] = useState(null);
   const [graphAnimKey, setGraphAnimKey] = useState(0);
@@ -911,5 +936,13 @@ export default function FraudDashboard() {
 // Mount app
 const rootEl = document.getElementById('root');
 if (rootEl) {
-  createRoot(rootEl).render(<FraudDashboard />);
+  function App() {
+    const [showDashboard, setShowDashboard] = useState(false);
+    return showDashboard ? (
+      <DashboardContent />
+    ) : (
+      <LandingPage onNavigate={() => setShowDashboard(true)} />
+    );
+  }
+  createRoot(rootEl).render(<App />);
 }
